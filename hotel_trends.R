@@ -52,19 +52,39 @@ head(df %>%
        select(where(is.logical)))
 
 
+## ----FunctionToExtractColumns----------------------------------------------------------------------
+# Function to extract columns that contain a specific word
+extract_columns <- function(data, word) {
+  data %>%
+    select(1:3, contains(word))
+}
+
+## ----FunctionToLongFormat--------------------------------------------------------------------------
+# Function to convert a data frame to long format
+to_long_format <- function(data, word) {
+  data %>%
+    pivot_longer(cols = contains(word),
+                 names_to = "CountryOfResidence",
+                 values_to = word)
+}
+
 ## ----ArrivalsDataframe-----------------------------------------------------------------------------
 # Create a new data frame with columns that contain the word "Arrivals" and the first 3 columns
-df_arrivals <- df %>%
-  select(1:3, contains("Arrivals"))
-head(df_arrivals)
+# df_arrivals <- df %>%
+#   select(1:3, contains("Arrivals"))
+# head(df_arrivals)
+
+df_arrivals <- extract_columns(data = df, word = "Arrivals")
 
 
 ## ----ArrivalsLongFormatDataframe-------------------------------------------------------------------
 # Show all the columns that contain the word ".Arrivals" in the data frame df_arrivals in long format
-df_arrivals.long.format <- df_arrivals %>%
-  pivot_longer(cols = contains("Arrivals"),
-               names_to = "CountryOfResidence",
-               values_to = "Arrivals")
+# df_arrivals.long.format <- df_arrivals %>%
+#   pivot_longer(cols = contains("Arrivals"),
+#                names_to = "CountryOfResidence",
+#                values_to = "Arrivals")
+
+df_arrivals.long.format <- to_long_format(data = df_arrivals, word = "Arrivals")
 head(df_arrivals.long.format)
 
 
@@ -76,17 +96,20 @@ head(df_arrivals.long.format)
 
 ## ----StaysDataframe--------------------------------------------------------------------------------
 # Create a new data frame with columns that contain the word "Stays" and the first 3 columns
-df_stays <- df %>%
-  select(1:3, contains("Stays"))
+# df_stays <- df %>%
+#   select(1:3, contains("Stays"))
+
+df_stays <- extract_columns(data = df, word = "Stays")
 head(df_stays)
 
 
 ## ----StaysLongFormatDataframe----------------------------------------------------------------------
 # Show all the columns that contain the word ".Stays" in the data frame df_stays in long format
-df_stays.long.format <- df_stays %>%
-  pivot_longer(cols = contains("Stays"),
-               names_to = "CountryOfResidence",
-               values_to = "Stays")
+# df_stays.long.format <- df_stays %>%
+#   pivot_longer(cols = contains("Stays"),
+#                names_to = "CountryOfResidence",
+#                values_to = "Stays")
+df_stays.long.format <- to_long_format(data = df_stays, word = "Stays")
 head(df_stays.long.format)
 
 
@@ -139,3 +162,4 @@ df.long.format <- df.long.format[, c(
   "Stays"
 )]
 head(df.long.format)
+View(df.long.format)
