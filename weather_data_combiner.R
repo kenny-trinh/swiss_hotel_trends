@@ -14,7 +14,7 @@ file_paths <- list(
   "data/weather/weather_fribourg.csv" = "Fribourg",
   "data/weather/weather_geneva.csv" = "Geneva",
   "data/weather/weather_glarus.csv" = "Glarus",
-  "data/weather/weather_grisons.csv" = "Grisons",
+  "data/weather/weather_graubuenden.csv" = "Graubuenden",
   "data/weather/weather_jura.csv" = "Jura",
   "data/weather/weather_lucerne.csv" = "Lucerne",
   "data/weather/weather_neuchatel.csv" = "Neuchatel",
