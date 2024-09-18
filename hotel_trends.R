@@ -161,7 +161,7 @@ df.long.format <- df.long.format %>%
       TRUE ~ NA_character_
     )
   )
-View(df.long.format)
+#View(df.long.format)
 
 
 ## ----ColumnOrder-----------------------------------------------------------------------------------
@@ -177,21 +177,21 @@ df.long.format <- df.long.format[, c(
   "Stays"
 )]
 head(df.long.format)
-View(df.long.format)
+#View(df.long.format)
 
 
 # Export df.long.format to an .xslx file
 write_xlsx(df.long.format, "data/df_long_format.xlsx")
 
 # Extract all unique Swiss cantons in df.long.format as a new data frame
-df.cantons <- df.long.format %>%
-  select(Canton) %>%
-  distinct()
+# df.cantons <- df.long.format %>%
+#   select(Canton) %>%
+#   distinct()
 
-write_csv(df.cantons, "data/swiss_cantons.csv")
+#write_csv(df.cantons, "data/swiss_cantons.csv")
 
 
-View(df.cantons)
+# View(df.cantons)
 
 
 summary(df.long.format)
@@ -199,10 +199,11 @@ dim(df.long.format)
 
 summary(df.long.format)
 
+View(df.long.format)
 
-df.weather <- read.csv("data/combined_weather_data.csv",
-               sep = ",")
-View(df.weather)
+
+df.weather <- read.csv("data/combined_weather_data.csv", sep = ",")
+# View(df.weather)
 
 # Check combined weather data for missing values
 sum(is.na(df.weather))

@@ -58,5 +58,7 @@ for (file_name in names(file_paths)) {
 # Combine all data frames into one
 combined_df <- bind_rows(data_list)
 
+head(combined_df)
+
 # Save the combined dataframe to a new CSV file
 write_csv(combined_df, "data/combined_weather_data.csv")
