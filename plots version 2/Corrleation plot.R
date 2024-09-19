@@ -77,3 +77,17 @@ ggplot(combined_data, aes(x = `rain_sum (mm)`, y = Stays, color = Canton)) +
   facet_wrap(~ Canton, scales = "fixed", labeller = label_wrap_gen(width = 20)) +  # Adjusts width of the labels
   theme(strip.text = element_text(size = 7.5))  # Adjust font size for canton labels
 
+
+###### MODEL FITTING ######
+
+# Linear regression for temperature effect
+model_temp <- lm(Stays ~ `temperature_2m_mean (°C)`, data = combined_data)
+summary(model_temp)
+
+# Linear regression for snowfall effect
+model_snow <- lm(Stays ~ `snowfall_sum (cm)`, data = combined_data)
+summary(model_snow)
+
+# Linear regression for temperature effect
+model_temp <- lm(Stays ~ `temperature_2m_mean (°C)`, data = combined_data)
+summary(model_temp)
