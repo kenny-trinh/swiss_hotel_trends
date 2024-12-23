@@ -35,3 +35,5 @@ po/*~
 rsconnect/
 Report_Hotel_Trends.aux
 Report_Hotel_Trends.toc
+# Ignore RStudio project files to avoid committing IDE-specific settings
+*.Rproj
